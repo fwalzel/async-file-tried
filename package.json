@@ -11,17 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://fwalzel@b:coverageitbucket.org/fwalzel/async-file-tried.git"
+    "url": "git+https://github.com/fwalzel/async-file-tried"
   },
   "author": "Florian Walzel",
   "license": "MIT",
   "bugs": {
-    "url": "https://bitbucket.org/fwalzel/async-file-tried/issues"
+    "url": "https://github.com/fwalzel/async-file-tried/issues"
   },
-  "homepage": "https://bitbucket.org/fwalzel/async-file-tried#readme",
-  "dependencies": {
-    "async-file": "^2.0.2"
-  },
+  "homepage": "https://github.com/fwalzel/async-file-tried#readme",
   "devDependencies": {
     "@types/node": "^20.9.5",
     "chai": "^4.3.6",
