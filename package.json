@@ -1,0 +1,54 @@
+{
+  "name": "async-file-tried",
+  "version": "1.0.0",
+  "description": "A try-catch wrapper around node’s fs/promises.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "NODE_ENV=TEST c8 mocha",
+    "coverage": "NODE_ENV=TEST c8 report --reporter=text-lcov > coverage/lcov-report/lcov.info"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://fwalzel@b:coverageitbucket.org/fwalzel/async-file-tried.git"
+  },
+  "author": "Florian Walzel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://bitbucket.org/fwalzel/async-file-tried/issues"
+  },
+  "homepage": "https://bitbucket.org/fwalzel/async-file-tried#readme",
+  "dependencies": {
+    "async-file": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.5",
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0",
+    "test-console": "^2.0.0"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "all": true,
+    "include": [
+      "dist/index.js"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "test/*.test.js",
+      "index.ts"
+    ]
+  },
+  "keywords": [
+    "fs promises",
+    "fs async",
+    "node file system",
+    "better error handling for fs",
+    "try catch wrapper",
+    "Typescript for fs"
+  ]
+}
