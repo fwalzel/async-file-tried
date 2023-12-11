@@ -152,41 +152,41 @@ let [res, err] = await fs.appendFile(['fs.__dirname', '..' , 'myfolder', `img_${
   + Typescript implementation: `async (path: string|Array<string>, options?: object)`
   + Usage example: `let [res, err] = await fs.stat('file.txt');`
 
--[fs.symlink](https://nodejs.org/api/fs.html#fspromisessymlinktarget-path-type)
+- [fs.symlink](https://nodejs.org/api/fs.html#fspromisessymlinktarget-path-type)
   + Typescript implementation: `async (target: string|Array<string>, path: string|Array<string>, type?: string)`
   + Usage example: `let [res, err] = await fs.symlink('file.txt', 'file-symlink.txt', 'file');`
 
--[fs.truncate](https://nodejs.org/api/fs.html#fspromisestruncatepath-len)
+- [fs.truncate](https://nodejs.org/api/fs.html#fspromisestruncatepath-len)
   + Typescript implementation: `async (path: string|Array<string>, len:number)`
   + Usage example: `let [res, err] = await fs.truncate('file.txt', 760);`
 
--[fs.unlink](https://nodejs.org/api/fs.html#fspromisesunlinkpath)
+- [fs.unlink](https://nodejs.org/api/fs.html#fspromisesunlinkpath)
   + Typescript implementation: `async (path: string|Array<string>)`
   + Usage example: `let [res, err] = await fs.unlink('file-symlink.txt');`
 
--[fs.utimes](https://nodejs.org/api/fs.html#fspromisesutimespath-atime-mtime)
+- [fs.utimes](https://nodejs.org/api/fs.html#fspromisesutimespath-atime-mtime)
   + Typescript implementation: `async (path: string|Array<string>, atime: number|string|Date, mtime: number|string|Date)`
   + Usage example: `let [res, err] = await fs.utimes('file.txt', new Date(), new Date());`
 
--[fs.watch](https://nodejs.org/api/fs.html#fspromiseswatchfilename-options)
+- [fs.watch](https://nodejs.org/api/fs.html#fspromiseswatchfilename-options)
   + Typescript implementation: `async (filename: string|Array<string>, options?: object|string)`
   + Usage example: `let [res, err] = await fs.watch('file.txt', (ev, file) => { console.log("Watcher: " + file); });`
 
--[fs.writeFile](https://nodejs.org/api/fs.html#fspromiseswritefilefile-data-options)
+- [fs.writeFile](https://nodejs.org/api/fs.html#fspromiseswritefilefile-data-options)
   + Typescript implementation: `async (path: string|Array<string>, data: any, options?: Encoding)`
   + Usage example: `let [res, err] = await fs.writeFile('file.txt', 'my text', 'utf8');`
 
 
 ### The Constants
 
--[fs.constants](https://nodejs.org/api/fs.html#fspromisesconstants)
+- [fs.constants](https://nodejs.org/api/fs.html#fspromisesconstants)
   + The FS [constants](https://nodejs.org/api/fs.html#fs-constants) object
 
--[fs.__dirname](https://nodejs.org/docs/latest/api/globals.html#__dirname)
+- [fs.__dirname](https://nodejs.org/docs/latest/api/globals.html#__dirname)
   + The equivalent to node’s `__dirname` usable within ES6 Module Syntax. Returns the directory name of the current module.
   + Implementation: `path.dirname(fileURLToPath(import.meta.url));`
 
--[fs.__filename](https://nodejs.org/docs/latest/api/globals.html#__filename)
+- [fs.__filename](https://nodejs.org/docs/latest/api/globals.html#__filename)
   + The equivalent to node’s `__filename` usable within ES6 Module Syntax. Returns the filename of the code which is executed.
   + Implementation: `fileURLToPath(import.meta.url);`
 
