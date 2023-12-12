@@ -8,7 +8,8 @@ node_modules/
 coverage/lcov-report/*.*
 !coverage/lcov-report/lcov.info
 coverage/tmp/
-coverage/lcov.info
+coverage/*.info
+coverage/*.json
 
 # Compiled Java class files
 *.class
