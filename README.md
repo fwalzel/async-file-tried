@@ -1,7 +1,7 @@
 # Async-file-tried
 
 *async-file-tried* is a wrapper around node’s `fs/promises` that abstracts the try-catch block for you.
-Write more linear, more concise code by getting a smoothed response. TypeScript supported.
+Write more linear, better readable code by getting a concise response. TypeScript supported.
 
 ## License
 
