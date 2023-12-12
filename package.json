@@ -21,24 +21,10 @@
   "homepage": "https://github.com/fwalzel/async-file-tried#readme",
   "devDependencies": {
     "@types/node": "^20.9.5",
+    "c8": "^8.0.1",
     "chai": "^4.3.6",
     "mocha": "^10.1.0",
     "test-console": "^2.0.0"
-  },
-  "nyc": {
-    "reporter": [
-      "text",
-      "lcov"
-    ],
-    "all": true,
-    "include": [
-      "dist/index.js"
-    ],
-    "exclude": [
-      "node_modules/**",
-      "test/*.test.js",
-      "index.ts"
-    ]
   },
   "keywords": [
     "fs promises",

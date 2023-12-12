@@ -5,7 +5,10 @@ node_modules/
 
 # Coverage
 .nyc_output/
-coverage/
+coverage/lcov-report/*.*
+!coverage/lcov-report/lcov.info
+coverage/tmp/
+coverage/lcov.info
 
 # Compiled Java class files
 *.class
