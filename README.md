@@ -7,7 +7,7 @@ Write more linear, better readable code by getting a concise response. TypeScrip
 ![Node.js Version](https://img.shields.io/badge/Node.js-16.x-green)
 [![Build](https://github.com/fwalzel/async-file-tried/actions/workflows/node.js.yml/badge.svg)](https://github.com/fwalzel/async-file-tried/actions/workflows/node.js.yml/badge.svg)
 <!-- [![cov](https://fwalzel.github.io/async-file-tried/badges/coverage.svg)](https://github.com/fwalzel/async-file-tried/actions) -->
-[![codecov.io](https://codecov.io/github/fwalzel/async-file-tried/coverage.svg?branch=master)](https://codecov.io/github/fwalzel/async-file-tried?branch=master)
+[![codecov.io](https://codecov.io/github/fwalzel/async-file-tried/coverage.svg?branch=main)](https://codecov.io/github/fwalzel/async-file-tried?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/github/fwalzel/async-file-tried/badge.svg)](https://snyk.io/test/github/fwalzel/async-file-tried/badge.svg)
 
 ## License
