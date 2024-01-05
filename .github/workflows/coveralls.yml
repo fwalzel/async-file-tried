@@ -18,12 +18,12 @@ jobs:
         run: npm install
 
       - name: Run tests and collect coverage
-        run: mkdir coverage/tmp && npm run coverage
+        run: mkdir coverage/lcov-report && npm run coverage
 
       - name: Wait for coverage report
         run: sleep 5
 
       - name: Publish to coveralls.io
-        uses: coverallsapp/github-action@v1.1.2
+        uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
