@@ -18,7 +18,7 @@ jobs:
         run: npm install
 
       - name: Run tests and collect coverage
-        run: mkdir coverage/lcov-report && npm run coverage
+        run: npm run coverage
 
       - name: Wait for coverage report
         run: sleep 5
