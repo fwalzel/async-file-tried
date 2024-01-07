@@ -6,10 +6,7 @@ Write more linear, better readable code by getting a concise response. TypeScrip
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Node.js Version](https://img.shields.io/badge/Node.js-16.x-green)
 [![Build](https://github.com/fwalzel/async-file-tried/actions/workflows/node.js.yml/badge.svg)](https://github.com/fwalzel/async-file-tried/actions/workflows/node.js.yml/badge.svg)
-<!-- [![cov](https://fwalzel.github.io/async-file-tried/badges/coverage.svg)](https://github.com/fwalzel/async-file-tried/actions) -->
-[![codecov.io](https://codecov.io/github/fwalzel/async-file-tried/coverage.svg?branch=main)](https://codecov.io/github/fwalzel/async-file-tried?branch=main)
-[![Coverage Status](https://coveralls.io/repos/github/fwalzel/async-file-tried/badge.svg?branch=dev)](https://coveralls.io/github/fwalzel/async-file-tried?branch=dev)
-
+[![Coverage Status](https://coveralls.io/repos/github/fwalzel/async-file-tried/badge.svg?branch=main)](https://coveralls.io/github/fwalzel/async-file-tried?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/github/fwalzel/async-file-tried/badge.svg)](https://snyk.io/test/github/fwalzel/async-file-tried/badge.svg)
 
 ## License
