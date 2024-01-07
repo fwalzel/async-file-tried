@@ -7,8 +7,8 @@
   "type": "module",
   "scripts": {
     "test": "NODE_ENV=TEST c8 mocha",
-    "coverage": "NODE_ENV=TEST c8 report --reporter=text-lcov > coverage/lcov-report/lcov.info",
-    "coverage:ci": "NODE_ENV=TEST c8 report --reporter=text-lcov"
+    "coverage": "NODE_ENV=TEST c8 report --reporter=text-lcov > coverage/lcov.info",
+    "test:coverage": "npm test && sleep 2 && npm run coverage"
   },
   "repository": {
     "type": "git",

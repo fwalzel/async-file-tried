@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - main  # Adjust the branch name based on your default branch
+      - main
 
 jobs:
   test:
@@ -18,10 +18,16 @@ jobs:
         run: npm install
 
       - name: Run tests and collect coverage
-        run: npm run coverage
+        run: mkdir -p coverage/tmp && npm run test:coverage
 
       - name: Wait for coverage report
-        run: sleep 5
+        run: sleep 3
+
+      - name: Debug coverage directory
+        run: ls -R coverage
+
+      - name: Debug lcov.info
+        run: cat coverage/lcov.info
 
       - name: Publish to coveralls.io
         uses: coverallsapp/github-action@v2
