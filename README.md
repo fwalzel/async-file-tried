@@ -1,7 +1,7 @@
 # Async-file-tried
 
 *async-file-tried* is a wrapper around node’s `fs/promises` that abstracts the try-catch block for you.
-Write more linear, better readable code by getting a concise response. TypeScript supported.
+Write more linear, better readable code by getting a concise response. Dependency free. TypeScript supported.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Node.js Version](https://img.shields.io/badge/Node.js-16.x-green)
@@ -11,7 +11,7 @@ Write more linear, better readable code by getting a concise response. TypeScrip
 
 ## License
 
-Copyright (c) 2023 Florian Walzel,
+Copyright (c) 2023–24 Florian Walzel,
 MIT License
 
 ## Install
@@ -199,14 +199,23 @@ let [res, err] = await fs.appendFile(['fs.__dirname', '..' , 'myfolder', `img_${
 
 ### Bonus Functions
 
+- fs.ensureDir
+
 - fs.readJson
   + Reads a JSON file and returns it as parsed Javascript object.
   + Typescript implementation: `async (path: string|Array<string>, options?: Encoding)`
   + Usage example: `let [res, err] = await fs.readJson('my.json');`
 
 - fs.writeJson
-  + Expects a Javascript object and will stringify and write it out.
+  + Expects a Javascript object, will stringify it and write it out.
   + Typescript implementation: `async (path: string|Array<string>, data: Object, options?: Encoding)`
   + Usage example: `let [res, err] = await fs.writeJson('./test/static-testfiles/test.json', { key : "value" });`
 
+- fs.readTextFile
 
+- fs.writeTextFile
+
+- fs.asyncHandler
+  + Takes any asynchronous Function and will internally wrap a try-catch block around it. The Return is given in the tuple pattern `[res, err]`.
+  + Typescript implementation: `asyncHandler = async (func: Function)`
+  + Usage example: `let [res, err] = await fs.asyncHandler(() => await myCustomFunction(someParam));`

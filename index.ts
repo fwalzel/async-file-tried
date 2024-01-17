@@ -172,7 +172,7 @@ const lutimes = async (path: string|Array<string>, atime: Date|number, mtime: Da
  * @param options
  * @returns {Promise<*[]>}
  */
-const mkdir = async (path: string|Array<string>, options?: number|string) => {
+const mkdir = async (path: string|Array<string>, options?: number|string|object) => {
   const pathResolved = __resolvePath(path);
   return await asyncHandler(() => fsp.mkdir(pathResolved, options));
 };
@@ -391,8 +391,15 @@ const __filename = fileURLToPath(import.meta.url);
 
 
 /****************************************
- * Extra
+ * Bonus Functions
  ****************************************/
+
+const ensureDir = async (dir: string|Array<string>)=> {
+  const pathResolved = __resolvePath(dir);
+  let [acc, err] = await access(pathResolved);
+  if (err)
+    return await mkdir(pathResolved, { recursive: true })
+};
 
 /**
  *
@@ -419,6 +426,30 @@ const writeJson = async (path: string|Array<string>, data: Object, options?: Enc
   const pathResolved = __resolvePath(path);
   return await asyncHandler(() => fsp.writeFile(pathResolved, JSON.stringify(data, null, 2), options ?? 'utf8'));
 };
+
+/**
+ *
+ * @param path
+ */
+const readTextFile = async (path: string|Array<string>) => {
+  const pathResolved = __resolvePath(path);
+  return await asyncHandler(() => fsp.readFile(pathResolved, 'utf8'));
+};
+
+/**
+ *
+ * @param path
+ * @param data
+ */
+const writeTextFile = async (path: string|Array<string>, data: string)=> {
+  const pathResolved = __resolvePath(path);
+  return await asyncHandler(() => fsp.writeFile(pathResolved, data, 'utf8'));
+};
+
+
+
+
+
 
 
 /****************************************
@@ -462,8 +493,11 @@ const fs = {
   __dirname,
   __filename,
   asyncHandler,
+  ensureDir,
   readJson,
   writeJson,
+  readTextFile,
+  writeTextFile,
 };
 
 if (process.env.NODE_ENV === 'TEST')
