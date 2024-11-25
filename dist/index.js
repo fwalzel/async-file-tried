@@ -348,8 +348,27 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
  */
 const __filename = fileURLToPath(import.meta.url);
 /****************************************
- * Extra
+ * Bonus Functions
  ****************************************/
+/**
+ *
+ * @param path
+ */
+const exists = async (path) => {
+    const pathResolved = __resolvePath(path);
+    let [res, err] = await access(pathResolved);
+    return !err;
+};
+/**
+ *
+ * @param dir
+ */
+const ensureDir = async (dir) => {
+    const pathResolved = __resolvePath(dir);
+    let [acc, err] = await access(pathResolved);
+    if (err)
+        return await mkdir(pathResolved, { recursive: true });
+};
 /**
  *
  * @param path
@@ -373,6 +392,23 @@ const readJson = async (path, options) => {
 const writeJson = async (path, data, options) => {
     const pathResolved = __resolvePath(path);
     return await asyncHandler(() => fsp.writeFile(pathResolved, JSON.stringify(data, null, 2), options ?? 'utf8'));
+};
+/**
+ *
+ * @param path
+ */
+const readTextFile = async (path) => {
+    const pathResolved = __resolvePath(path);
+    return await asyncHandler(() => fsp.readFile(pathResolved, 'utf8'));
+};
+/**
+ *
+ * @param path
+ * @param data
+ */
+const writeTextFile = async (path, data) => {
+    const pathResolved = __resolvePath(path);
+    return await asyncHandler(() => fsp.writeFile(pathResolved, data, 'utf8'));
 };
 const fs = {
     access,
@@ -408,8 +444,12 @@ const fs = {
     __dirname,
     __filename,
     asyncHandler,
+    exists,
+    ensureDir,
     readJson,
     writeJson,
+    readTextFile,
+    writeTextFile,
 };
 if (process.env.NODE_ENV === 'TEST')
     fs['__resolvePath'] = __resolvePath;

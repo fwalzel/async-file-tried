@@ -1,6 +1,6 @@
 {
   "name": "async-file-tried",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A try-catch wrapper around node’s fs/promises.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,7 +24,8 @@
     "@types/node": "^20.9.5",
     "c8": "^8.0.1",
     "chai": "^4.3.6",
-    "mocha": "^10.1.0"
+    "mocha": "^10.1.0",
+    "typescript": "^5.7.2"
   },
   "keywords": [
     "fs promises",

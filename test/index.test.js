@@ -364,22 +364,32 @@ describe('Tests for async-file-tried', () => {
     assert.equal(err, null);
   });
 
-  it('[62] ERR: fs.writeJson shall error when file does not exist', async () => {
+  it('[62] ERR: fs.exists shall return FALSE when file does not exist', async () => {
+    let res = await fs.exists('somenonexistentpath.txt');
+    assert.equal(res, false);
+  });
+
+  it('[63] ERR: fs.exists shall return TRUE file does not exist', async () => {
+    let res = await fs.exists('./test/static-testfiles/file.txt');
+    assert.equal(res, true);
+  });
+
+  it('[64] ERR: fs.writeJson shall error when file does not exist', async () => {
     let [res, err] = await fs.writeJson('', '');
     assert.notEqual(err, null);
   });
 
-  it('[63] RES: fs.writeJson shall return valid result when JSON was written', async () => {
+  it('[65] RES: fs.writeJson shall return valid result when JSON was written', async () => {
     let [res, err] = await fs.writeJson('./test/static-testfiles/test.json', { key : "value" });
     assert.equal(err, null);
   });
 
-  it('[64] ERR: fs.readJson shall error when file does not exist', async () => {
+  it('[66] ERR: fs.readJson shall error when file does not exist', async () => {
     let [res, err] = await fs.readJson('');
     assert.notEqual(err, null);
   });
 
-  it('[65] RES: fs.readJson shall return object when JSON was read', async () => {
+  it('[67] RES: fs.readJson shall return object when JSON was read', async () => {
     let [res, err] = await fs.readJson('./test/static-testfiles/test.json', 'utf8');
     assert.isObject(res);
   });

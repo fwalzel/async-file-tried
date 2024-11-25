@@ -1,7 +1,7 @@
 # Async-file-tried
 
 *async-file-tried* is a wrapper around node’s `fs/promises` that abstracts the try-catch block for you.
-Write more linear, better readable code by getting a concise response. TypeScript supported.
+Write more linear, better readable code by getting a concise response. Dependency free. TypeScript supported.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Node.js Version](https://img.shields.io/badge/Node.js-16.x-green)
@@ -11,7 +11,7 @@ Write more linear, better readable code by getting a concise response. TypeScrip
 
 ## License
 
-Copyright (c) 2023 Florian Walzel,
+Copyright (c) 2023–24 Florian Walzel,
 MIT License
 
 ## Install
@@ -23,7 +23,7 @@ npm install async-file-tried
 Import:
 
 ```javascript
-import * as fs from 'async-file-tried';
+import fs from 'async-file-tried';
 ```
 
 ## Usage
@@ -199,14 +199,37 @@ let [res, err] = await fs.appendFile(['fs.__dirname', '..' , 'myfolder', `img_${
 
 ### Bonus Functions
 
+- fs.exists
+  + Checks if a file or directory exists, returns boolean
+  + Typescript implementation: `async (path: string|Array<string>)`
+  + Usage example: `let res = await fs.exists('file.txt');`
+
+- fs.ensureDir
+  + Checks if a directory exists, creates it if not
+  + Typescript implementation: `async (dir: string|Array<string>)`
+  + Usage example: `let res = await fs.ensureDir('./my-dir');` 
+
 - fs.readJson
   + Reads a JSON file and returns it as parsed Javascript object.
   + Typescript implementation: `async (path: string|Array<string>, options?: Encoding)`
   + Usage example: `let [res, err] = await fs.readJson('my.json');`
 
 - fs.writeJson
-  + Expects a Javascript object and will stringify and write it out.
+  + Expects a Javascript object, will stringify it and write it out as JSON.
   + Typescript implementation: `async (path: string|Array<string>, data: Object, options?: Encoding)`
-  + Usage example: `let [res, err] = await fs.writeJson('./test/static-testfiles/test.json', { key : "value" });`
+  + Usage example: `let [res, err] = await fs.writeJson('my.json', { key : "value" });`
 
+- fs.readTextFile
+  + Reads a text file as UTF8
+  + Typescript implementation: `async (path: string|Array<string>)`
+  + Usage example: `let [res, err] = await fs.readTextFile('file.txt');`
 
+- fs.writeTextFile
+  + Writes out a String as UTF8
+  + Typescript implementation: `async (path: string|Array<string>, data: string)`
+  + Usage example: `let [res, err] = await fs.writeTextFile('file.txt', 'Hello world!');`
+
+- fs.asyncHandler
+  + Takes any asynchronous Function and will internally wrap a try-catch block around it. The Return is given in the tuple pattern `[res, err]`.
+  + Typescript implementation: `asyncHandler = async (func: Function)`
+  + Usage example: `let [res, err] = await fs.asyncHandler(() => await myCustomFunction(someParam));`
