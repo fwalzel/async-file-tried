@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import * as fsNormal from 'node:fs';
 import { CopyOptions } from "node:fs";
 /****************************************
@@ -22,7 +21,7 @@ declare const fs: {
     link: (existingPath: string | Array<string>, newPath: string | Array<string>) => Promise<any[]>;
     lstat: (path: string | Array<string>, options?: object) => Promise<any[]>;
     lutimes: (path: string | Array<string>, atime: Date | number, mtime: Date | number) => Promise<any[]>;
-    mkdir: (path: string | Array<string>, options?: number | string) => Promise<any[]>;
+    mkdir: (path: string | Array<string>, options?: number | string | object) => Promise<any[]>;
     mkdtemp: (prefix: string, encoding?: Encoding) => Promise<any[]>;
     open: (path: string | Array<string>, flags?: Flags, mode?: number | string) => Promise<any[]>;
     opendir: (path: string | Array<string>, options?: object) => Promise<any[]>;
@@ -44,8 +43,12 @@ declare const fs: {
     __dirname: string;
     __filename: string;
     asyncHandler: (func: Function) => Promise<any[]>;
+    exists: (path: string | Array<string>) => Promise<boolean>;
+    ensureDir: (dir: string | Array<string>) => Promise<any[]>;
     readJson: (path: string | Array<string>, options?: Encoding) => Promise<any[]>;
     writeJson: (path: string | Array<string>, data: Object, options?: Encoding) => Promise<any[]>;
+    readTextFile: (path: string | Array<string>) => Promise<any[]>;
+    writeTextFile: (path: string | Array<string>, data: string) => Promise<any[]>;
 };
 export default fs;
 //# sourceMappingURL=index.d.ts.map

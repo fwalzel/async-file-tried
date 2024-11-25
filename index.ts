@@ -394,6 +394,20 @@ const __filename = fileURLToPath(import.meta.url);
  * Bonus Functions
  ****************************************/
 
+/**
+ *
+ * @param path
+ */
+const exists = async (path: string|Array<string>) => {
+  const pathResolved = __resolvePath(path);
+  let [res, err] = await access(pathResolved);
+  return !err
+}
+
+/**
+ *
+ * @param dir
+ */
 const ensureDir = async (dir: string|Array<string>)=> {
   const pathResolved = __resolvePath(dir);
   let [acc, err] = await access(pathResolved);
@@ -449,9 +463,6 @@ const writeTextFile = async (path: string|Array<string>, data: string)=> {
 
 
 
-
-
-
 /****************************************
  * Export
  ****************************************/
@@ -493,6 +504,7 @@ const fs = {
   __dirname,
   __filename,
   asyncHandler,
+  exists,
   ensureDir,
   readJson,
   writeJson,
