@@ -385,7 +385,6 @@ describe('Tests for async-file-tried', () => {
     assert.equal(res, true);
   });
 
-
   it('[66] ERR: fs.writeJson shall error when file does not exist', async () => {
     let [res, err] = await fs.writeJson('', '');
     assert.notEqual(err, null);
