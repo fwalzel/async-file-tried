@@ -369,35 +369,53 @@ describe('Tests for async-file-tried', () => {
     assert.equal(res, false);
   });
 
-  it('[63] ERR: fs.exists shall return TRUE file does not exist', async () => {
+  it('[63] RES: fs.exists shall return TRUE file exists', async () => {
     let res = await fs.exists('./test/static-testfiles/file.txt');
     assert.equal(res, true);
   });
 
-  it('[64] ERR: fs.writeJson shall error when file does not exist', async () => {
+
+  it('[64] RES: fs.exists shall return TRUE if folder exists', async () => {
+    let res = await fs.ensureDir('./test/static-testfiles');
+    assert.equal(res, true);
+  });
+
+  it('[65] RES: fs.exists shall return TRUE if folder was created', async () => {
+    let res = await fs.ensureDir('./test/static-testfiles/ensure-folder');
+    assert.equal(res, true);
+  });
+
+  it('[66] ERR: fs.writeJson shall error when file does not exist', async () => {
     let [res, err] = await fs.writeJson('', '');
     assert.notEqual(err, null);
   });
 
-  it('[65] RES: fs.writeJson shall return valid result when JSON was written', async () => {
+  it('[67] RES: fs.writeJson shall return valid result when JSON was written', async () => {
     let [res, err] = await fs.writeJson('./test/static-testfiles/test.json', { key : "value" });
     assert.equal(err, null);
   });
 
-  it('[66] ERR: fs.readJson shall error when file does not exist', async () => {
+  it('[68] ERR: fs.readJson shall error when file does not exist', async () => {
     let [res, err] = await fs.readJson('');
     assert.notEqual(err, null);
   });
 
-  it('[67] RES: fs.readJson shall return object when JSON was read', async () => {
+  it('[69] RES: fs.readJson shall return object when JSON was read', async () => {
     let [res, err] = await fs.readJson('./test/static-testfiles/test.json', 'utf8');
     assert.isObject(res);
   });
 
+  it('Cleanup', async () => {
+    // cleanup symlink from test run:
+    await fs.unlink('./test/static-testfiles/symlinkToFile-append.txt');
+
+    // cleanup symlink from test run:
+    await fs.rm('./test/static-testfiles/file.txt');
+
+    // cleanup symlink from test run:
+    await fs.rmdir('./test/static-testfiles/ensure-folder');
+  });
+
 });
 
-// cleanup symlink from test run:
-await fs.unlink('./test/static-testfiles/symlinkToFile-append.txt');
 
-// cleanup symlink from test run:
-await fs.rm('./test/static-testfiles/file.txt');

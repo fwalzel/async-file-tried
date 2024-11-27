@@ -412,7 +412,8 @@ const ensureDir = async (dir: string|Array<string>)=> {
   const pathResolved = __resolvePath(dir);
   let [acc, err] = await access(pathResolved);
   if (err)
-    return await mkdir(pathResolved, { recursive: true })
+    await mkdir(pathResolved, { recursive: true })
+  return true;
 };
 
 /**

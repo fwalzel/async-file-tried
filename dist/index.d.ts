@@ -44,7 +44,7 @@ declare const fs: {
     __filename: string;
     asyncHandler: (func: Function) => Promise<any[]>;
     exists: (path: string | Array<string>) => Promise<boolean>;
-    ensureDir: (dir: string | Array<string>) => Promise<any[]>;
+    ensureDir: (dir: string | Array<string>) => Promise<boolean>;
     readJson: (path: string | Array<string>, options?: Encoding) => Promise<any[]>;
     writeJson: (path: string | Array<string>, data: Object, options?: Encoding) => Promise<any[]>;
     readTextFile: (path: string | Array<string>) => Promise<any[]>;

@@ -52,17 +52,19 @@ catch (err) {
 
 ## Extra: joined paths
 
-*async-file-tried* also has an in-built path.join() so that you can alternatively pass all path arguments as array of sub-elements.
+*async-file-tried* also has an in-built `path.join()` so that you can alternatively pass the path argument as array of sub-elements.
 
 You can write i.e.:
 
 ```javascript
-let [res, err] = await fs.appendFile(['fs.__dirname', '..' , 'myfolder', `img_${i}.txt`], 'my text');
+let [res, err] = await fs.appendFile(
+  ['fs.__dirname', '..' , 'myfolder', `img_${i}.txt`], 
+  'my text');
 ```
 
-... and the file string will be composed automatically.
+... and the path string will be composed automatically.
 
-## API
+## Public Functions
 
 ### FS Function List
 
@@ -228,6 +230,11 @@ let [res, err] = await fs.appendFile(['fs.__dirname', '..' , 'myfolder', `img_${
   + Writes out a String as UTF8
   + Typescript implementation: `async (path: string|Array<string>, data: string)`
   + Usage example: `let [res, err] = await fs.writeTextFile('file.txt', 'Hello world!');`
+
+### The Async Handler
+
+This Handler is behind all Async-file-tried functions. You can pass any function (wrapped in an anonymous function) to it, 
+and the Result/ Error will be returned as tuple.  
 
 - fs.asyncHandler
   + Takes any asynchronous Function and will internally wrap a try-catch block around it. The Return is given in the tuple pattern `[res, err]`.
