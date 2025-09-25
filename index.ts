@@ -352,7 +352,7 @@ const utimes = async (path: string|Array<string>, atime: number|string|Date, mti
  * @param options
  * @returns {Promise<*[]>}
  */
-const watch = async (filename: string|Array<string>, options?: object|string) => {
+const watch = async (filename: string|Array<string>, options?: BufferEncoding | "buffer") => {
   const filenameResolved = __resolvePath(filename);
   return await asyncHandler(() => fsp.watch(filenameResolved, options));
 };
@@ -411,8 +411,13 @@ const exists = async (path: string|Array<string>) => {
 const ensureDir = async (dir: string|Array<string>)=> {
   const pathResolved = __resolvePath(dir);
   let [acc, err] = await access(pathResolved);
-  if (err)
-    await mkdir(pathResolved, { recursive: true })
+  if (err) {
+    let [r,e] = await mkdir(pathResolved, { recursive: true })
+    if (e) {
+      console.error(e);
+      return false;
+    }
+  }
   return true;
 };
 

@@ -37,7 +37,7 @@ declare const fs: {
     truncate: (path: string | Array<string>, len: number) => Promise<any[]>;
     unlink: (path: string | Array<string>) => Promise<any[]>;
     utimes: (path: string | Array<string>, atime: number | string | Date, mtime: number | string | Date) => Promise<any[]>;
-    watch: (filename: string | Array<string>, options?: object | string) => Promise<any[]>;
+    watch: (filename: string | Array<string>, options?: BufferEncoding | "buffer") => Promise<any[]>;
     writeFile: (path: string | Array<string>, data: any, options?: Encoding) => Promise<any[]>;
     constants: typeof fsNormal.constants;
     __dirname: string;
