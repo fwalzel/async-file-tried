@@ -68,9 +68,15 @@ let [res, err] = await fs.appendFile(
 
 ### FS Function List
 
-- [fs.access](https://nodejs.org/api/fs.html#fspromisesaccesspath-mode)
-  + Typescript implementation: `async (path: string|Array<string>, mode?: number|string)`
-  + Usage example: `let [res, err] = await fs.access('file.txt', fs.constants.R_OK);`
+## [fs.access](https://nodejs.org/api/fs.html#fspromisesaccesspath-mode)
+  Typescript implementation: 
+  ```typescript
+  async (path: string|Array<string>, mode?: number|string)
+  ```
+  Usage example: 
+  ```javascript
+  let [res, err] = await fs.access('file.txt', fs.constants.R_OK);
+  ```
 
 - [fs.appendFile](https://nodejs.org/api/fs.html#fspromisesappendfilepath-data-options)
   + Typescript implementation: `async (path: string|Array<string>, data: any, options?: { encoding?: Encoding; mode?: number|string; flag?: Flags; })`
