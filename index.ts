@@ -352,7 +352,7 @@ const utimes = async (path: string|Array<string>, atime: number|string|Date, mti
  * @param options
  * @returns {Promise<*[]>}
  */
-const watch = async (filename: string|Array<string>, options?: object|string) => {
+const watch = async (filename: string|Array<string>, options?: BufferEncoding | "buffer") => {
   const filenameResolved = __resolvePath(filename);
   return await asyncHandler(() => fsp.watch(filenameResolved, options));
 };

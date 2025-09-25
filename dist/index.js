@@ -366,8 +366,13 @@ const exists = async (path) => {
 const ensureDir = async (dir) => {
     const pathResolved = __resolvePath(dir);
     let [acc, err] = await access(pathResolved);
-    if (err)
-        await mkdir(pathResolved, { recursive: true });
+    if (err) {
+        let [r, e] = await mkdir(pathResolved, { recursive: true });
+        if (e) {
+            console.error(e);
+            return false;
+        }
+    }
     return true;
 };
 /**
