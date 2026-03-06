@@ -22,6 +22,9 @@ Import:
 import fs from 'async-file-tried';
 ```
 
+[![What Was Design](https://florianwalzel.com/what-was-design-banner-2x.webp)](https://www.slanted.de/product/what-was-design/)
+
+
 ## Usage
 
 Usually we do not want to make calls against the file system without a proper error handling. But the try-catch block is somewhat unelegant because it moves code blocks in the bracket sub-space and thus disturbs the linearity of our programming. *async-file-tried* returns a tuple with either the response or the error from a fs call and simplifies error handling.
