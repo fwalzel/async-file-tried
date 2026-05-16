@@ -22,7 +22,9 @@ Import:
 import fs from 'async-file-tried';
 ```
 
-[![What Was Design](https://florianwalzel.com/what-was-design-banner-2x.webp)](https://www.slanted.de/product/what-was-design/)
+---
+
+[![Florian Walzel, What was design? Declarations and definitions from a century of creative quest](https://florianwalzel.com/wwd-hero-d.webp)](https://www.slanted.de/product/what-was-design/)
 
 
 ## Usage
